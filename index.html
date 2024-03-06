@@ -20,8 +20,8 @@
         
         /* Estilos do carrossel */
         .carousel { position: relative; margin: 20px 0; overflow: hidden; }
-        .carousel-inner { display: flex; transition: transform 0.5s ease; }
-        .carousel-item { flex: 0 0 auto; width: 100px; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; }
+        .carousel-inner { display: flex; transition: transform 0.5s ease; width: 300%; }
+        .carousel-item { flex: 0 0 auto; width: 33.33%; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; }
         .carousel-item img { width: 100%; height: auto; border-radius: 5px 5px 0 0; }
         .carousel-item h3 { margin: 10px; }
         .carousel-item p { margin: 10px; }
@@ -106,15 +106,15 @@
         const carouselInner = document.querySelector('.carousel-inner');
         const carouselItems = document.querySelectorAll('.carousel-item');
         let counter = 0;
-        const itemWidth = 100; // Largura fixa dos itens
-        carouselInner.style.width = `${itemWidth * carouselItems.length}px`;
+        const itemWidth = 33.33; // Porcentagem da largura dos itens
+        carouselInner.style.width = `${itemWidth * carouselItems.length}%`;
 
         function moveCarousel() {
             counter++;
             if (counter >= carouselItems.length) {
                 counter = 0;
             }
-            carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
+            carouselInner.style.transform = `translateX(-${counter * itemWidth}%)`;
         }
 
         setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
