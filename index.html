@@ -21,13 +21,13 @@
         /* Estilos do carrossel */
         .carousel { position: relative; margin: 20px 0; overflow: hidden; }
         .carousel-inner { display: flex; transition: transform 0.5s ease; }
-        .carousel-item { flex: 0 0 auto; width: 350px; height: 300px; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; text-align: center; }
+        .carousel-item { flex: 0 0 auto; width: 350px; height: 300px; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; text-align: center; position: relative; }
         .carousel-item img { max-width: 100px; max-height: 100px; margin: 20px auto 10px; }
         .carousel-item h3 { margin: 10px 0; }
         .carousel-item p { margin: 10px 0; }
         .carousel-item a { display: inline-block; background: #009688; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
         .carousel-item a:hover { background-color: #00796b; }
-        .new-release { background-color: #ff9800; color: #fff; padding: 5px 10px; border-radius: 5px; font-weight: bold; margin-bottom: 10px; }
+        .new-release { position: absolute; top: 10px; right: 10px; background-color: #ff9800; color: #fff; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
 
         /* Estilos para a sessão de contato */
         .contact-info { background-color: #f0f0f0; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
@@ -80,13 +80,13 @@
         <section id="home" class="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item">
-                    <div class="new-release">Novo Lançamento</div>
                     <img src="money-transfer.png" alt="Logo PixPlus">
                     <h3>PixPlus</h3>
                     <p>Jogue, Ganhe, Repita!</p>
                     <a href="https://play.google.com/store/apps/details?id=app.pix.plus">Baixe o PixPlus</a>
                 </div>
                 <div class="carousel-item">
+                    <div class="new-release">Novo Lançamento</div>
                     <img src="images (8).jpeg" alt="Logo Lâmpadas">
                     <h3>Lâmpadas</h3>
                     <p>Desafie sua mente com nossos quebra-cabeças divertidos.</p>
