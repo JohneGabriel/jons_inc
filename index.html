@@ -8,18 +8,13 @@
     <style>
         /* Estilos gerais */
         body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; margin: 0; }
-        header { background: linear-gradient(135deg, #009688 0%, #00695c 100%); color: #fff; padding: 20px 0; text-align: center; }
+        header { background: linear-gradient(135deg, #009688 0%, #00695c 100%); color: #fff; padding: 40px 0; text-align: center; }
         header h1 { margin: 0; font-size: 36px; }
         header p { margin-top: 10px; font-size: 18px; }
         .container { max-width: 1170px; margin: auto; padding: 20px; }
         footer { background: #004d40; color: #fff; padding: 20px 0; text-align: center; }
         footer p { margin: 0; }
-        /* Menu */
-        nav { text-align: center; }
-        nav ul { margin: 0; padding: 0; list-style: none; }
-        nav ul li { display: inline-block; }
-        nav ul li a { color: #fff; text-decoration: none; font-size: 18px; padding: 15px 20px; transition: color 0.3s, background-color 0.3s; }
-        nav ul li a:hover { color: #009688; background-color: #fff; }
+        
         /* Estilos do carrossel */
         .carousel { position: relative; margin: 20px 0; overflow: hidden; }
         .carousel-inner { display: flex; }
@@ -30,6 +25,7 @@
         .carousel-item a { display: inline-block; background: #009688; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
         .carousel-item a:hover { background-color: #00796b; }
         .new-release { position: absolute; top: 10px; right: 10px; background-color: #ff9800; color: #fff; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
+
         /* Estilos para a sessão de contato */
         .contact-info { background-color: #f0f0f0; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
         .contact-info h2 { margin-bottom: 20px; color: #009688; font-size: 24px; }
@@ -37,6 +33,7 @@
         .contact-info img { width: 150px; height: auto; margin-bottom: 20px; }
         .contact-info a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; margin-top: 10px; }
         .contact-info a:hover { background-color: #00796b; }
+
         /* Estilos para a sessão do grupo do Telegram */
         .telegram-group { background-color: #f0f0f0; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
         .telegram-group h2 { margin-bottom: 20px; color: #009688; font-size: 24px; }
@@ -44,6 +41,7 @@
         .telegram-group p { margin-top: 20px; font-size: 18px; font-style: italic; }
         .telegram-group a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; margin-top: 10px; }
         .telegram-group a:hover { background-color: #00796b; }
+
         /* Animação do carrossel */
         @keyframes marquee {
             0% { transform: translateX(0); }
@@ -54,14 +52,7 @@
 <body>
     <header>
         <h1>Bem-vindo à Jons_inc</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#grupo">Grupo</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+        <p>Descubra nossos aplicativos incríveis!</p>
     </header>
     <div class="container">
         <section id="home" class="carousel">
@@ -85,7 +76,6 @@
                     <p>Jogue, Ganhe, Repita!</p>
                     <a href="https://play.google.com/store/apps/details?id=app.pix.plus">Baixe o PixPlus</a>
                 </div>
-            </div>
         </section>
         <section id="sobre">
             <h2>Sobre Nós</h2>
