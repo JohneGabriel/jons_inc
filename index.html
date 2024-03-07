@@ -32,17 +32,17 @@
         .contact-info { background-color: #f0f0f0; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
         .contact-info h2 { margin-bottom: 20px; color: #009688; }
         .contact-info p { margin-top: 20px; }
-        .contact-info img { width: 100px; height: auto; margin-bottom: 20px; }
+        .contact-info img { width: 100px; height: 100px; margin-bottom: 20px; }
         .contact-info a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
         .contact-info a:hover { background-color: #00796b; }
 
         /* Estilos para a sessão do grupo do Telegram */
         .telegram-group { background-color: #f0f0f0; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
         .telegram-group h2 { margin-bottom: 20px; color: #009688; }
-        .telegram-group img { width: 100%; max-width: 200px; height: auto; margin-bottom: 20px; }
+        .telegram-group img { width: 100px; height: 100px; margin-bottom: 20px; }
         .telegram-group p { margin-top: 20px; }
-        .telegram-group a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
-        .telegram-group a:hover { background-color: #00796b; }
+        .telegram-group .telegram-link { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
+        .telegram-group .telegram-link:hover { background-color: #00796b; }
     </style>
 </head>
 <body>
@@ -86,38 +86,21 @@
             <h2>Participe do nosso grupo no Telegram</h2>
             <img src="Telegram_logo.svg.png" alt="Logo Telegram">
             <p>Conecte-se com outros membros e fique por dentro das últimas novidades.</p>
-            <a href="https://t.me/Jons_inc">Entrar no Grupo</a>
+            <a class="telegram-link" href="https://t.me/Jons_inc">Entrar no Grupo</a>
         </section>
         <section id="contato" class="contact-info">
             <h2>Entre em Contato</h2>
-            <p>Estamos aqui para ajudar! Entre em contato conosco para obter mais informações ou suporte.</p>
+            <p>Estamos aqui para ajudar! Entre em contato conosco:</p>
             <img src="image.png" alt="Entre em Contato">
-            <a href="mailto:jons.inc.apps@gmail.com">Email: jons.inc.apps@gmail.com</a>
-            <a href="https://t.me/Jons_inc">Telegram: Jons_inc</a>
+            <div>
+                <a href="mailto:jons.inc.apps@gmail.com">Email: jons.inc.apps@gmail.com</a>
+                <br>
+                <a href="https://t.me/Jons_inc">Telegram: Jons_inc</a>
+            </div>
         </section>
     </div>
     <footer>
         <p>© 2024 Jons_inc. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        // Ajuste do carrossel para rolar da direita para a esquerda
-        const carousel = document.querySelector('.carousel');
-        const carouselInner = document.querySelector('.carousel-inner');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        let counter = 0;
-        const itemWidth = 350; // Largura dos itens
-        carouselInner.style.width = `${itemWidth * carouselItems.length}px`;
-
-        function moveCarousel() {
-            counter++;
-            if (counter >= carouselItems.length) {
-                counter = 0;
-            }
-            carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
-        }
-
-        setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
-    </script>
 </body>
 </html>
