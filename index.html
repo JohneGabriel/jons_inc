@@ -36,6 +36,14 @@
         .contact-info .buttons { margin-top: 20px; }
         .contact-info .buttons a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
         .contact-info .buttons a:hover { background-color: #00796b; }
+
+        /* Estilos para a sessão do grupo do Telegram */
+        .telegram-group { background-color: #e0f2f1; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
+        .telegram-group h2 { margin-bottom: 20px; color: #009688; }
+        .telegram-group img { width: 150px; height: auto; margin-bottom: 20px; }
+        .telegram-group p { margin-top: 20px; }
+        .telegram-group a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
+        .telegram-group a:hover { background-color: #00796b; }
     </style>
 </head>
 <body>
@@ -75,38 +83,24 @@
             <h2>Sobre Nós</h2>
             <p>A Jons_inc é uma empresa dedicada a criar soluções inovadoras para facilitar a vida das pessoas por meio da tecnologia.</p>
         </section>
+        <section id="grupo" class="telegram-group">
+            <h2>Conecte-se conosco no Telegram</h2>
+            <img src="Telegram_logo.svg.png" alt="Logo Telegram">
+            <p>Participe do nosso grupo para interagir com outros membros e ficar por dentro das últimas novidades!</p>
+            <a href="https://t.me/jons_apps">Entrar no Grupo</a>
+        </section>
         <section id="contato" class="contact-info">
             <h2>Entre em Contato</h2>
             <p>Estamos aqui para ajudar!</p>
             <img src="image.png" alt="Entre em Contato">
             <div class="buttons">
                 <a href="mailto:jons.inc.apps@gmail.com">Email: jons.inc.apps@gmail.com</a>
-                <a href="https://t.me/Jons_inc">Telegram: Jons_inc</a>
+                <a href="https://t.me/jons_apps">Telegram: jons_apps</a>
             </div>
         </section>
     </div>
     <footer>
         <p>© 2024 Jons_inc. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        // Ajuste do carrossel para rolar da direita para a esquerda
-        const carousel = document.querySelector('.carousel');
-        const carouselInner = document.querySelector('.carousel-inner');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        let counter = 0;
-        const itemWidth = 350; // Largura dos itens
-        carouselInner.style.width = `${itemWidth * carouselItems.length}px`;
-
-        function moveCarousel() {
-            counter++;
-            if (counter >= carouselItems.length) {
-                counter = 0;
-            }
-            carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
-        }
-
-        setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
-    </script>
 </body>
 </html>
