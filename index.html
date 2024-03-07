@@ -8,14 +8,16 @@
     <style>
         /* Estilos gerais */
         body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; margin: 0; }
-        header { background: linear-gradient(135deg, #009688 0%, #00695c 100%); color: #fff; padding: 40px 0; text-align: center; position: fixed; width: 100%; z-index: 1000; transition: background-color 0.3s; }
+        header { background: linear-gradient(135deg, #009688 0%, #00695c 100%); color: #fff; padding: 20px 0; text-align: center; position: fixed; width: 100%; z-index: 1000; transition: background-color 0.3s; }
         header.scroll { background-color: rgba(0, 105, 88, 0.9); }
         header h1 { margin: 0; font-size: 36px; }
         header p { margin-top: 10px; font-size: 18px; }
-        nav { display: flex; justify-content: center; padding: 20px 0; background: #004d40; transition: padding 0.3s; }
-        nav a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; }
-        nav a:hover { background-color: #00796b; }
-        .container { max-width: 1170px; margin: auto; padding: 20px; padding-top: 150px; }
+        .menu-toggle { display: none; }
+        .menu { display: flex; justify-content: center; padding: 0; margin: 0; }
+        .menu li { list-style: none; }
+        .menu a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; position: relative; }
+        .menu a:hover { background-color: #00796b; }
+        .container { max-width: 1170px; margin: auto; padding: 20px; padding-top: 100px; }
         footer { background: #004d40; color: #fff; padding: 20px 0; text-align: center; }
         footer p { margin: 0; }
         
@@ -46,16 +48,27 @@
         .telegram-group p { margin-top: 20px; font-size: 18px; font-style: italic; }
         .telegram-group a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; margin-top: 10px; }
         .telegram-group a:hover { background-color: #00796b; }
+
+        /* Estilos para o menu suspenso */
+        .menu-toggle-label { display: block; background-color: #009688; color: #fff; text-align: center; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; }
+        .menu-toggle-label:hover { background-color: #00796b; }
+        .menu-toggle:checked + .menu { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background-color: #004d40; border-radius: 5px; padding: 10px 0; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 999; }
+        .menu-toggle:checked + .menu li { margin: 10px 0; }
+        .menu-toggle:checked + .menu a { display: block; padding: 10px 20px; border-radius: 0; }
+        .menu-toggle:checked + .menu a:hover { background-color: #00796b; }
+        .menu-toggle:checked + .menu { opacity: 1; visibility: visible; }
     </style>
 </head>
 <body>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-toggle-label">Menu</label>
     <header>
         <h1>Bem-vindo à Jons_inc</h1>
         <p>Descubra nossos aplicativos incríveis!</p>
-        <nav>
-            <a href="#home">Início</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+        <nav class="menu">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
         </nav>
     </header>
     <div class="container">
@@ -104,50 +117,5 @@
     <footer>
         <p>© 2024 Jons_inc. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        // Ajuste do carrossel para rolar da direita para a esquerda
-        const carousel = document.querySelector('.carousel');
-        const carouselInner = document.querySelector('.carousel-inner');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        let counter = 0;
-        const itemWidth = 350; // Largura dos itens
-        carouselInner.style.width = `${itemWidth * carouselItems.length}px`;
-
-        function moveCarousel() {
-            counter++;
-            if (counter >= carouselItems.length) {
-                counter = 0;
-            }
-            carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
-        }
-
-        setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
-
-        // Adiciona funcionalidade aos botões do cabeçalho
-        const navLinks = document.querySelectorAll('nav a');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                window.scrollTo({
-                    top: targetSection.offsetTop - 50,
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Adiciona classe ao cabeçalho ao rolar para baixo
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scroll');
-            } else {
-                header.classList.remove('scroll');
-            }
-        });
-    </script>
 </body>
 </html>
