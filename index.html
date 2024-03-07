@@ -173,24 +173,18 @@
             const prevButton = document.querySelector(".carousel-prev");
             const nextButton = document.querySelector(".carousel-next");
             let currentIndex = 0;
+            const intervalTime = 5000; // Tempo em milissegundos entre as transições
+            let slideInterval;
 
             // Função para mostrar o próximo slide
             function showNextSlide() {
-                if (currentIndex < carouselItems.length - 1) {
-                    currentIndex++;
-                } else {
-                    currentIndex = 0;
-                }
+                currentIndex = (currentIndex + 1) % carouselItems.length;
                 updateCarousel();
             }
 
             // Função para mostrar o slide anterior
             function showPrevSlide() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                } else {
-                    currentIndex = carouselItems.length - 1;
-                }
+                currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
                 updateCarousel();
             }
 
@@ -201,8 +195,17 @@
             }
 
             // Adicionar eventos aos botões de controle
-            prevButton.addEventListener("click", showPrevSlide);
-            nextButton.addEventListener("click", showNextSlide);
+            prevButton.addEventListener("click", function() {
+                clearInterval(slideInterval);
+                showPrevSlide();
+            });
+            nextButton.addEventListener("click", function() {
+                clearInterval(slideInterval);
+                showNextSlide();
+            });
+
+            // Iniciar a rolagem automática
+            slideInterval = setInterval(showNextSlide, intervalTime);
         });
     </script>
 </body>
