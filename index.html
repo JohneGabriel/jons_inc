@@ -139,30 +139,15 @@
         carouselInner.insertBefore(lastClone, carouselItems[0]);
 
         let counter = 1; // Começa com 1 para exibir o segundo item primeiro
+        carouselInner.style.transition = 'transform 60s linear';
         carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`; // Começa com o segundo item
 
         function moveCarousel() {
             counter++;
-            carouselInner.style.transition = 'transform 0.5s ease-in-out';
             carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
         }
 
-        setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
-
-        // Adiciona funcionalidade aos botões do cabeçalho
-        const navLinks = document.querySelectorAll('nav a');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                window.scrollTo({
-                    top: targetSection.offsetTop - 50,
-                    behavior: 'smooth'
-                });
-            });
-        });
+        setInterval(moveCarousel, 60000); // Rola a cada 60 segundos
     </script>
 </body>
 </html>
