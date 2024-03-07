@@ -80,6 +80,12 @@
         <section id="home" class="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item">
+                    <img src="Design sem nome_20240306_130857_0000.png" alt="Logo Rewards">
+                    <h3>Rewards</h3>
+                    <p>Ganhe recompensas diárias com nosso aplicativo!</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.rewards.jons.app">Baixe o Rewards</a>
+                </div>
+                <div class="carousel-item">
                     <div class="new-release">Novo Lançamento</div>
                     <img src="money-transfer.png" alt="Logo PixPlus">
                     <h3>PixPlus</h3>
@@ -91,12 +97,6 @@
                     <h3>Lâmpadas</h3>
                     <p>Desafie sua mente com nossos quebra-cabeças divertidos.</p>
                     <a href="https://play.google.com/store/apps/details?id=com.jons.lampadas">Baixe o Lâmpadas</a>
-                </div>
-                <div class="carousel-item">
-                    <img src="Design sem nome_20240306_130857_0000.png" alt="Logo Rewards">
-                    <h3>Rewards</h3>
-                    <p>Ganhe recompensas diárias com nosso aplicativo!</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.rewards.jons.app">Baixe o Rewards</a>
                 </div>
             </div>
         </section>
@@ -129,17 +129,35 @@
         const carousel = document.querySelector('.carousel');
         const carouselInner = document.querySelector('.carousel-inner');
         const carouselItems = document.querySelectorAll('.carousel-item');
-        let counter = 0;
+        let counter = 1; // Começa com 1 para exibir o segundo item primeiro
         const itemWidth = 350; // Largura dos itens
-        carouselInner.style.width = `${itemWidth * carouselItems.length}px`;
+        carouselInner.style.width = `${itemWidth * (carouselItems.length + 2)}px`; // Adiciona mais 2 itens para o efeito de rolagem infinita
+
+        // Clona o primeiro e o último item para efeito de rolagem infinita
+        const firstClone = carouselItems[0].cloneNode(true);
+        const lastClone = carouselItems[carouselItems.length - 1].cloneNode(true);
+        carouselInner.appendChild(firstClone);
+        carouselInner.insertBefore(lastClone, carouselItems[0]);
+
+        carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`; // Começa com o segundo item
 
         function moveCarousel() {
             counter++;
-            if (counter >= carouselItems.length) {
-                counter = 0;
-            }
+            carouselInner.style.transition = 'transform 0.5s ease-in-out';
             carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
         }
+
+        carousel.addEventListener('transitionend', () => {
+            if (carouselItems[counter].classList.contains('new-release')) {
+                carouselItems[counter].classList.remove('new-release');
+            }
+
+            if (carouselItems[counter].classList.contains('carousel-item')) {
+                carouselInner.style.transition = 'none';
+                counter = carouselItems.length - counter;
+                carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
+            }
+        });
 
         setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
 
