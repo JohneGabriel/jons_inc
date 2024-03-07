@@ -20,7 +20,7 @@
         
         /* Estilos do carrossel */
         .carousel { position: relative; margin: 20px 0; overflow: hidden; }
-        .carousel-inner { display: flex; animation: marquee 20s linear infinite; }
+        .carousel-inner { display: flex; }
         .carousel-item { flex: 0 0 auto; width: 350px; height: 300px; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; text-align: center; position: relative; }
         .carousel-item img { max-width: 100px; max-height: 100px; margin: 20px auto 10px; }
         .carousel-item h3 { margin: 10px 0; }
@@ -68,7 +68,7 @@
         /* Animação do carrossel */
         @keyframes marquee {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(calc(-100% - 15px * 3)); }
         }
     </style>
 </head>
@@ -157,7 +157,7 @@
             // Função para atualizar o carrossel com o slide atual
             function updateCarousel() {
                 const offset = -currentIndex * slideWidth;
-                carouselInner.style.transition = "transform 0.5s ease";
+                carouselInner.style.transition = "transform 1s linear";
                 carouselInner.style.transform = `translateX(${offset}px)`;
             }
 
