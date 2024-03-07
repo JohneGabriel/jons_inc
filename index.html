@@ -8,13 +8,14 @@
     <style>
         /* Estilos gerais */
         body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; margin: 0; }
-        header { background: linear-gradient(135deg, #009688 0%, #00695c 100%); color: #fff; padding: 40px 0; text-align: center; }
+        header { background: linear-gradient(135deg, #009688 0%, #00695c 100%); color: #fff; padding: 40px 0; text-align: center; position: fixed; width: 100%; z-index: 1000; transition: background-color 0.3s; }
+        header.scroll { background-color: rgba(0, 105, 88, 0.9); }
         header h1 { margin: 0; font-size: 36px; }
         header p { margin-top: 10px; font-size: 18px; }
-        nav { display: flex; justify-content: center; padding: 20px 0; background: #004d40; }
+        nav { display: flex; justify-content: center; padding: 20px 0; background: #004d40; transition: padding 0.3s; }
         nav a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; }
         nav a:hover { background-color: #00796b; }
-        .container { max-width: 1170px; margin: auto; padding: 20px; }
+        .container { max-width: 1170px; margin: auto; padding: 20px; padding-top: 150px; }
         footer { background: #004d40; color: #fff; padding: 20px 0; text-align: center; }
         footer p { margin: 0; }
         
@@ -27,6 +28,8 @@
         .carousel-item p { margin: 10px 0; }
         .carousel-item a { display: inline-block; background: #009688; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
         .carousel-item a:hover { background-color: #00796b; }
+        .carousel-item.highlight { border-color: #ff9800; }
+        .carousel-item.highlight h3 { color: #ff9800; }
 
         /* Estilos para a sessão de contato */
         .contact-info { background-color: #f0f0f0; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
@@ -70,7 +73,7 @@
                     <p>Desafie sua mente com nossos quebra-cabeças divertidos.</p>
                     <a href="https://play.google.com/store/apps/details?id=com.jons.lampadas">Baixe o Lâmpadas</a>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item highlight">
                     <img src="Design sem nome_20240306_130857_0000.png" alt="Logo Rewards">
                     <h3>Rewards</h3>
                     <p>Ganhe recompensas diárias com nosso aplicativo!</p>
@@ -134,6 +137,16 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Adiciona classe ao cabeçalho ao rolar para baixo
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scroll');
+            } else {
+                header.classList.remove('scroll');
+            }
         });
     </script>
 </body>
