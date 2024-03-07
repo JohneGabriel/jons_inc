@@ -12,9 +12,7 @@
         header h1 { margin: 0; font-size: 36px; }
         header p { margin-top: 10px; font-size: 18px; }
         nav { display: flex; justify-content: center; padding: 20px 0; background: #004d40; }
-        nav ul { list-style-type: none; margin: 0; padding: 0; display: flex; }
-        nav ul li { margin: 0 10px; }
-        nav a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; }
+        nav a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; }
         nav a:hover { background-color: #00796b; }
         .container { max-width: 1170px; margin: auto; padding: 20px; }
         footer { background: #004d40; color: #fff; padding: 20px 0; text-align: center; }
@@ -29,28 +27,12 @@
         .carousel-item p { margin: 10px 0; }
         .carousel-item a { display: inline-block; background: #009688; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
         .carousel-item a:hover { background-color: #00796b; }
-        .carousel-item.highlight { background-color: #FFD700; }
-
-        /* Estilos para a sessão de contato */
-        .contact-info { background-color: #f0f0f0; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
-        .contact-info h2 { margin-bottom: 20px; color: #009688; font-size: 24px; }
-        .contact-info p { margin-top: 20px; font-size: 18px; }
-        .contact-info img { width: 150px; height: auto; margin-bottom: 20px; }
-        .contact-info a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; margin-top: 10px; }
-        .contact-info a:hover { background-color: #00796b; }
-
-        /* Estilos para a sessão do grupo do Telegram */
-        .telegram-group { background-color: #f0f0f0; padding: 40px; margin: 20px 0; border-radius: 10px; text-align: center; }
-        .telegram-group h2 { margin-bottom: 20px; color: #009688; font-size: 24px; }
-        .telegram-group img { width: 100px; height: 100px; margin-bottom: 20px; }
-        .telegram-group p { margin-top: 20px; font-size: 18px; font-style: italic; }
-        .telegram-group a { display: inline-block; background-color: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; margin-top: 10px; }
-        .telegram-group a:hover { background-color: #00796b; }
+        .carousel-item.new-release { border: 2px solid #ff9800; } /* Destaque para novo lançamento */
 
         /* Estilos para o novo menu */
-        .menu { display: flex; justify-content: center; margin-bottom: 20px; }
-        .menu a { color: #333; text-decoration: none; padding: 10px 20px; margin: 0 10px; border-radius: 5px; transition: background-color 0.3s; }
-        .menu a:hover { background-color: #009688; color: #fff; }
+        .menu { background-color: #009688; text-align: center; }
+        .menu a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; }
+        .menu a:hover { background-color: #00796b; }
     </style>
 </head>
 <body>
@@ -58,11 +40,9 @@
         <h1>Bem-vindo à Jons_inc</h1>
         <p>Descubra nossos aplicativos incríveis!</p>
         <nav>
-            <ul class="menu">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
+            <a href="#home">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
         </nav>
     </header>
     <div class="container">
@@ -74,13 +54,13 @@
                     <p>Jogue, Ganhe, Repita!</p>
                     <a href="https://play.google.com/store/apps/details?id=app.pix.plus">Baixe o PixPlus</a>
                 </div>
-                <div class="carousel-item highlight">
+                <div class="carousel-item">
                     <img src="images (8).jpeg" alt="Logo Lâmpadas">
                     <h3>Lâmpadas</h3>
                     <p>Desafie sua mente com nossos quebra-cabeças divertidos.</p>
                     <a href="https://play.google.com/store/apps/details?id=com.jons.lampadas">Baixe o Lâmpadas</a>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item new-release"> <!-- Destaque para novo lançamento -->
                     <img src="Design sem nome_20240306_130857_0000.png" alt="Logo Rewards">
                     <h3>Rewards</h3>
                     <p>Ganhe recompensas diárias com nosso aplicativo!</p>
@@ -132,7 +112,7 @@
         setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
 
         // Adiciona funcionalidade aos botões do cabeçalho
-        const navLinks = document.querySelectorAll('.menu a');
+        const navLinks = document.querySelectorAll('nav a');
 
         navLinks.forEach(link => {
             link.addEventListener('click', function(event) {
