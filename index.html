@@ -64,6 +64,38 @@
         .menu a:hover {
             background-color: #ddd;
         }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -71,9 +103,13 @@
         <h1>Bem-vindo à Jons_inc</h1>
         <p>Descubra nossos aplicativos incríveis!</p>
         <nav>
-            <a href="#home">Início</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+            <div class="dropdown">
+                <a href="#home">Início</a>
+                <div class="dropdown-content">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#contato">Contato</a>
+                </div>
+            </div>
         </nav>
     </header>
     <div class="container">
@@ -86,13 +122,13 @@
                     <a href="https://play.google.com/store/apps/details?id=app.pix.plus">Baixe o PixPlus</a>
                 </div>
                 <div class="carousel-item">
-                    <div class="new-release">Novo Lançamento</div>
                     <img src="images (8).jpeg" alt="Logo Lâmpadas">
                     <h3>Lâmpadas</h3>
                     <p>Desafie sua mente com nossos quebra-cabeças divertidos.</p>
                     <a href="https://play.google.com/store/apps/details?id=com.jons.lampadas">Baixe o Lâmpadas</a>
                 </div>
                 <div class="carousel-item">
+                    <div class="new-release">Novo Lançamento</div>
                     <img src="Design sem nome_20240306_130857_0000.png" alt="Logo Rewards">
                     <h3>Rewards</h3>
                     <p>Ganhe recompensas diárias com nosso aplicativo!</p>
@@ -123,40 +159,5 @@
     <footer>
         <p>© 2024 Jons_inc. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        // Ajuste do carrossel para rolar da direita para a esquerda
-        const carousel = document.querySelector('.carousel');
-        const carouselInner = document.querySelector('.carousel-inner');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        let counter = 0;
-        const itemWidth = 350; // Largura dos itens
-        carouselInner.style.width = `${itemWidth * carouselItems.length}px`;
-
-        function moveCarousel() {
-            counter++;
-            if (counter >= carouselItems.length) {
-                counter = 0;
-            }
-            carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
-        }
-
-        setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
-
-        // Adiciona funcionalidade aos botões do cabeçalho
-        const navLinks = document.querySelectorAll('nav a');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                window.scrollTo({
-                    top: targetSection.offsetTop - 50,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
