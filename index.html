@@ -9,19 +9,19 @@
         /* Estilos gerais */
         body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; margin: 0; background-color: #f0f0f0; }
         .container { max-width: 1170px; margin: auto; padding: 20px; }
-        header { background: linear-gradient(135deg, #009688 0%, #00695c 100%); color: #fff; padding: 20px 0; text-align: center; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
+        header { background: linear-gradient(135deg, #009688 0%, #00695c 100%); color: #fff; padding: 20px 0; text-align: center; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; width: 100%; }
         header h1 { margin: 0; font-size: 36px; }
         header p { margin-top: 10px; font-size: 18px; }
         nav { display: flex; justify-content: center; padding: 20px 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); }
-        nav a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; position: relative; }
+        nav a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; }
         nav a:hover { background-color: #00796b; }
         .menu-toggle { display: none; }
         .menu { display: flex; justify-content: center; padding: 0; margin: 0; }
         .menu li { list-style: none; }
-        .menu a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; position: relative; }
+        .menu a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; }
         .menu a:hover { background-color: #00796b; }
         .container { padding-top: 100px; }
-        footer { background: #004d40; color: #fff; padding: 20px 0; text-align: center; position: fixed; bottom: 0; left: 0; right: 0; }
+        footer { background: #004d40; color: #fff; padding: 20px 0; text-align: center; position: fixed; bottom: 0; left: 0; right: 0; width: 100%; }
         footer p { margin: 0; }
         
         /* Estilos do carrossel */
@@ -52,8 +52,9 @@
 
         /* Estilos para o menu suspenso */
         @media only screen and (max-width: 768px) {
-            .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; z-index: 2000; }
-            .menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); padding: 20px; border-radius: 5px; }
+            nav { display: none; }
+            .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; z-index: 1000; }
+            .menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); padding: 20px; border-radius: 5px; z-index: 999; }
             .menu a { display: block; padding: 10px 0; }
             .menu-toggle:checked + .menu { display: flex; }
         }
@@ -86,7 +87,7 @@
                     <p>Desafie sua mente com nossos quebra-cabeças divertidos.</p>
                     <a href="https://play.google.com/store/apps/details?id=com.jons.lampadas">Baixe o Lâmpadas</a>
                 </div>
-                <div class="carousel-item highlight">
+                <div class="carousel-item">
                     <img src="Design sem nome_20240306_130857_0000.png" alt="Logo Rewards">
                     <h3>Rewards</h3>
                     <p>Ganhe recompensas diárias com nosso aplicativo!</p>
