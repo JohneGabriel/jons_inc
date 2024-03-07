@@ -20,7 +20,7 @@
         
         /* Estilos do carrossel */
         .carousel { position: relative; margin: 20px 0; overflow: hidden; }
-        .carousel-inner { display: flex; }
+        .carousel-inner { display: flex; animation: marquee 60s linear infinite; }
         .carousel-item { flex: 0 0 auto; width: 350px; height: 300px; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; text-align: center; position: relative; }
         .carousel-item img { max-width: 100px; max-height: 100px; margin: 20px auto 10px; }
         .carousel-item h3 { margin: 10px 0; }
@@ -63,6 +63,12 @@
 
         .menu a:hover {
             background-color: #ddd;
+        }
+
+        /* Animação de marquise para o carrossel */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
@@ -123,31 +129,5 @@
     <footer>
         <p>© 2024 Jons_inc. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        // Ajuste do carrossel para rolar da direita para a esquerda
-        const carousel = document.querySelector('.carousel');
-        const carouselInner = document.querySelector('.carousel-inner');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        const itemWidth = 350; // Largura dos itens
-        carouselInner.style.width = `${itemWidth * carouselItems.length}px`; // Define a largura total do carrossel
-
-        // Clona o primeiro e o último item para efeito de rolagem contínua
-        const firstClone = carouselItems[0].cloneNode(true);
-        const lastClone = carouselItems[carouselItems.length - 1].cloneNode(true);
-        carouselInner.appendChild(firstClone);
-        carouselInner.insertBefore(lastClone, carouselItems[0]);
-
-        let counter = 1; // Começa com 1 para exibir o segundo item primeiro
-        carouselInner.style.transition = 'transform 60s linear';
-        carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`; // Começa com o segundo item
-
-        function moveCarousel() {
-            counter++;
-            carouselInner.style.transform = `translateX(-${counter * itemWidth}px)`;
-        }
-
-        setInterval(moveCarousel, 60000); // Rola a cada 60 segundos
-    </script>
 </body>
 </html>
