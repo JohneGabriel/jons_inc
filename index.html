@@ -68,7 +68,7 @@
         /* Animação do carrossel */
         @keyframes marquee {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+            100% { transform: translateX(-50%); }
         }
     </style>
 </head>
@@ -143,7 +143,7 @@
             const carouselItems = document.querySelectorAll(".carousel-item");
             const carouselInner = document.querySelector(".carousel-inner");
             let currentIndex = 0;
-            const slideWidth = carouselItems[0].offsetWidth;
+            const slideWidth = carouselItems[0].offsetWidth + 15; // Adicionando o espaço entre os slides
             const totalSlides = carouselItems.length;
             const intervalTime = 2000; // Tempo em milissegundos entre as transições
             let slideInterval;
