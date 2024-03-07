@@ -12,7 +12,7 @@
         header h1 { margin: 0; font-size: 36px; }
         header p { margin-top: 10px; font-size: 18px; }
         nav { display: flex; justify-content: center; padding: 20px 0; background: #004d40; }
-        nav a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; }
+        nav a { color: #fff; text-decoration: none; padding: 10px 20px; transition: background-color 0.3s; border-radius: 5px; margin: 0 10px; }
         nav a:hover { background-color: #00796b; }
         .container { max-width: 1170px; margin: auto; padding: 20px; }
         footer { background: #004d40; color: #fff; padding: 20px 0; text-align: center; }
@@ -120,6 +120,21 @@
         }
 
         setInterval(moveCarousel, 2500); // Rola a cada 2.5 segundos
+
+        // Adiciona funcionalidade aos botões do cabeçalho
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
