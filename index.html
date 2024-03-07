@@ -20,7 +20,7 @@
         
         /* Estilos do carrossel */
         .carousel { position: relative; margin: 20px 0; overflow: hidden; }
-        .carousel-inner { display: flex; }
+        .carousel-inner { display: flex; animation: marquee 20s linear infinite; }
         .carousel-item { flex: 0 0 auto; width: 350px; height: 300px; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; text-align: center; position: relative; }
         .carousel-item img { max-width: 100px; max-height: 100px; margin: 20px auto 10px; }
         .carousel-item h3 { margin: 10px 0; }
@@ -63,6 +63,12 @@
 
         .menu a:hover {
             background-color: #ddd;
+        }
+
+        /* Animação do carrossel */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-25%); }
         }
     </style>
 </head>
