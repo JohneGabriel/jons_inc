@@ -20,8 +20,8 @@
         
         /* Estilos do carrossel */
         .carousel { position: relative; margin: 20px 0; overflow: hidden; }
-        .carousel-inner { display: flex; }
-        .carousel-item { flex: 0 0 auto; width: 350px; height: 300px; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; text-align: center; position: relative; transition: transform 0.5s ease; }
+        .carousel-inner { display: flex; animation: marquee 20s linear infinite; }
+        .carousel-item { flex: 0 0 auto; width: 350px; height: 300px; border: 1px solid #ddd; border-radius: 5px; margin-right: 15px; text-align: center; position: relative; }
         .carousel-item img { max-width: 100px; max-height: 100px; margin: 20px auto 10px; }
         .carousel-item h3 { margin: 10px 0; }
         .carousel-item p { margin: 10px 0; }
@@ -70,30 +70,6 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
-
-        /* Estilos para os controles do carrossel */
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .carousel-prev,
-        .carousel-next {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .carousel-prev:hover,
-        .carousel-next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
     </style>
 </head>
 <body>
@@ -135,11 +111,6 @@
                     <p>Recompensas Diárias</p>
                     <a href="https://play.google.com/store/apps/details?id=com.rewards.jons.app">Baixe o Rewards</a>
                 </div>
-            </div>
-            <!-- Adicionando controles do carrossel -->
-            <div class="carousel-controls">
-                <div class="carousel-prev">&#10094;</div>
-                <div class="carousel-next">&#10095;</div>
             </div>
         </section>
         <section id="sobre">
@@ -183,29 +154,12 @@
                 updateCarousel();
             }
 
-            // Função para mostrar o slide anterior
-            function showPrevSlide() {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                updateCarousel();
-            }
-
             // Função para atualizar o carrossel com o slide atual
             function updateCarousel() {
                 const offset = -currentIndex * slideWidth;
                 carouselInner.style.transition = "transform 0.5s ease";
                 carouselInner.style.transform = `translateX(${offset}px)`;
             }
-
-            // Adicionar eventos aos botões de controle
-            const prevButton = document.querySelector(".carousel-prev");
-            const nextButton = document.querySelector(".carousel-next");
-
-            prevButton.addEventListener("click", function() {
-                showPrevSlide();
-            });
-            nextButton.addEventListener("click", function() {
-                showNextSlide();
-            });
 
             // Iniciar a rolagem automática
             function startSlideInterval() {
@@ -215,24 +169,6 @@
             function stopSlideInterval() {
                 clearInterval(slideInterval);
             }
-
-            carouselInner.addEventListener("transitionend", function() {
-                if (currentIndex === 0) {
-                    carouselInner.style.transition = "none";
-                    carouselInner.style.transform = `translateX(-${totalSlides * slideWidth}px)`;
-                    setTimeout(() => {
-                        currentIndex = totalSlides;
-                        updateCarousel();
-                    }, 0);
-                } else if (currentIndex === totalSlides - 1) {
-                    carouselInner.style.transition = "none";
-                    carouselInner.style.transform = `translateX(-${slideWidth}px)`;
-                    setTimeout(() => {
-                        currentIndex = 1;
-                        updateCarousel();
-                    }, 0);
-                }
-            });
 
             startSlideInterval();
         });
